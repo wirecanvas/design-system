@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>컴포넌트 카탈로그 · 디자인 시스템</title>
+<style>
+/* ============================================================
+ * tokens.css (회사 디자인 토큰)
+ * ============================================================ */
+:root {
+  --color-primitive-primary-100: #DDE4FC;
+  --color-primitive-primary-400: #7793F3;
+  --color-primitive-primary-500: #5578F0;
+  --color-primitive-primary-600: #4D6CD8;
+  --color-primitive-primary-700: #4866CC;
+  --color-primitive-secondary-500: #808390;
+  --color-primitive-secondary-600: #737682;
+  --color-primitive-info-500: #00BAD1;
+  --color-primitive-success-500: #28C76F;
+  --color-primitive-success-600: #24B364;
+  --color-primitive-warning-500: #FF9F43;
+  --color-primitive-error-500: #FF4C51;
+  --color-primitive-error-600: #E64449;
+  --color-primitive-gray-300: #C0BEC5;
+  --color-primitive-gray-500: #97939E;
+  --color-primitive-gray-700: #6D6777;
+  --color-primitive-gray-900: #433C50;
+
+  --color-primitive-opacity-primary-8: #5578F014;
+  --color-primitive-opacity-primary-16: #5578F029;
+  --color-primitive-opacity-success-16: #28C76F29;
+  --color-primitive-opacity-warning-16: #FF9F4329;
+  --color-primitive-opacity-error-16: #FF4C5129;
+  --color-primitive-opacity-info-16: #00BAD129;
+  --color-primitive-opacity-secondary-16: #80839029;
+
+  --color-color-palette-primary-main: var(--color-primitive-primary-500);
+  --color-color-palette-primary-dark: var(--color-primitive-primary-600);
+  --color-color-palette-primary-light: var(--color-primitive-primary-400);
+  --color-color-palette-primary-opacity-lighter: var(--color-primitive-opacity-primary-8);
+  --color-color-palette-primary-opacity-light: var(--color-primitive-opacity-primary-16);
+  --color-color-palette-success-main: var(--color-primitive-success-500);
+  --color-color-palette-success-dark: var(--color-primitive-success-600);
+  --color-color-palette-success-opacity-light: var(--color-primitive-opacity-success-16);
+  --color-color-palette-warning-main: var(--color-primitive-warning-500);
+  --color-color-palette-warning-opacity-light: var(--color-primitive-opacity-warning-16);
+  --color-color-palette-error-main: var(--color-primitive-error-500);
+  --color-color-palette-error-dark: var(--color-primitive-error-600);
+  --color-color-palette-error-opacity-light: var(--color-primitive-opacity-error-16);
+  --color-color-palette-info-main: var(--color-primitive-info-500);
+  --color-color-palette-info-opacity-light: var(--color-primitive-opacity-info-16);
+  --color-color-palette-secondary-main: var(--color-primitive-secondary-500);
+  --color-color-palette-secondary-opacity-light: var(--color-primitive-opacity-secondary-16);
+
+  --color-theme-chip-background: #2F2B3D14;
+  --color-theme-input-border: #2F2B3D38;
+  --color-theme-outline-border: #2F2B3D3D;
+  --color-theme-divider: #2F2B3D1F;
+  --color-theme-action-disabled-bg: #2F2B3D29;
+  --color-theme-action-disabled: #2F2B3D4D;
+  --color-theme-action-hover: #2F2B3D0F;
+  --color-theme-text-disabled: #2F2B3D66;
+  --color-theme-text-subtitle: #2F2B3D8C;
+  --color-theme-text-secondary: #2F2B3DB3;
+  --color-theme-text-primary: #2F2B3DE6;
+
+  --color-misc-paper: #FFFFFF;
+  --color-misc-body-bg: #F7F7F7;
+  --color-misc-grey-light: #FAFAFA;
+  --color-misc-table-header: #FFFFFF;
+  --color-misc-snackbar: #2F2B3D;
+
+  --spacing-p-1: 4px;  --spacing-p-2: 8px;  --spacing-p-3: 12px;
+  --spacing-p-4: 16px; --spacing-p-5: 20px; --spacing-p-6: 24px;
+  --spacing-p-7: 28px; --spacing-p-8: 32px; --spacing-p-10: 40px;
+  --spacing-p-12: 48px; --spacing-p-16: 64px; --spacing-p-25: 100px;
+  --spacing-gap-1: 4px;  --spacing-gap-2: 8px;  --spacing-gap-3: 12px;
+  --spacing-gap-4: 16px; --spacing-gap-5: 20px; --spacing-gap-6: 24px;
+  --spacing-gap-8: 32px;
+
+  --radius-xs: 2px;  --radius-sm: 4px;  --radius-md: 6px;
+  --radius-lg: 8px;  --radius-xl: 10px; --radius-border-round: 500px;
+
+  --shadow-elevation-gray-shadow-xs: 0px 1px 6px 0px rgba(47, 43, 61, 0.1);
+  --shadow-elevation-gray-shadow-sm: 0px 2px 8px 0px rgba(47, 43, 61, 0.12);
+  --shadow-elevation-gray-shadow-md: 0px 3px 12px 0px rgba(47, 43, 61, 0.14);
+  --shadow-elevation-gray-shadow-lg: 0px 4px 18px 0px rgba(47, 43, 61, 0.16);
+  --shadow-elevation-primary-primary-shadow-sm: 0px 2px 6px 0px rgba(85, 120, 240, 0.3);
+  --shadow-elevation-primary-primary-shadow-md: 0px 4px 16px 0px rgba(85, 120, 240, 0.4);
+  --shadow-elevation-error-error-shadow-sm: 0px 2px 6px 0px rgba(255, 76, 81, 0.3);
+  --shadow-elevation-success-success-shadow-sm: 0px 2px 6px 0px rgba(40, 199, 111, 0.3);
+}
+
+/* ============================================================
+ * typography.css (시스템 폰트 폴백)
+ * ============================================================ */
+.text-h1, .text-h2, .text-h3, .text-h4, .text-h5, .text-h6,
+.text-body-1, .text-body-1-500, .text-body-2, .text-body-2-500,
+.text-subtitle-1, .text-subtitle-2, .text-overline, .text-caption,
+.text-small, .text-mini, .text-mini-upper,
+.text-btn-small, .text-btn-medium, .text-btn-large,
+.text-chip, .text-badge-label, .text-table-header,
+.text-alert-title, .text-tooltip, .text-input-label, .text-helper-text,
+.text-input-text, .text-input-text-small {
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", "Segoe UI", Roboto, sans-serif;
+}
+
+.text-h1 { font-size: 46px; font-weight: 500; line-height: 68px; }
+.text-h2 { font-size: 38px; font-weight: 500; line-height: 56px; }
+.text-h3 { font-size: 28px; font-weight: 500; line-height: 42px; }
+.text-h4 { font-size: 24px; font-weight: 500; line-height: 38px; }
+.text-h5 { font-size: 18px; font-weight: 500; line-height: 28px; }
+.text-h6 { font-size: 15px; font-weight: 500; line-height: 22px; }
+.text-body-1 { font-size: 15px; font-weight: 400; line-height: 22px; }
+.text-body-1-500 { font-size: 15px; font-weight: 500; line-height: 22px; }
+.text-body-2 { font-size: 13px; font-weight: 400; line-height: 20px; }
+.text-body-2-500 { font-size: 13px; font-weight: 500; line-height: 20px; }
+.text-overline { font-size: 12px; font-weight: 400; line-height: 14px; letter-spacing: 0.8px; text-transform: uppercase; }
+.text-caption { font-size: 13px; font-weight: 400; line-height: 18px; letter-spacing: 0.4px; }
+.text-small { font-size: 12px; font-weight: 400; line-height: normal; }
+.text-mini-upper { font-size: 10px; font-weight: 400; line-height: normal; letter-spacing: 0.8px; text-transform: uppercase; }
+.text-btn-small { font-size: 13px; font-weight: 500; line-height: 18px; text-transform: capitalize; }
+.text-btn-medium { font-size: 15px; font-weight: 500; line-height: 22px; text-transform: capitalize; }
+.text-btn-large { font-size: 17px; font-weight: 500; line-height: 26px; text-transform: capitalize; }
+.text-chip { font-size: 13px; font-weight: 500; line-height: 20px; }
+.text-badge-label { font-size: 13px; font-weight: 500; line-height: 16px; }
+.text-table-header { font-size: 13px; font-weight: 500; line-height: 24px; letter-spacing: 0.2px; text-transform: uppercase; }
+.text-alert-title { font-size: 18px; font-weight: 500; line-height: 24px; }
+.text-input-label { font-size: 13px; font-weight: 400; line-height: 15px; }
+.text-helper-text { font-size: 13px; font-weight: 400; line-height: 13px; }
+.text-input-text { font-size: 15px; font-weight: 400; line-height: 24px; }
+.text-input-text-small { font-size: 13px; font-weight: 400; line-height: 22px; }
+
+/* ============================================================
+ * COMPONENTS — 회사 디자인 시스템 컴포넌트 정의
+ * ============================================================ */
+
+/* ----- Button ----- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-gap-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+  text-decoration: none;
+}
+.btn:disabled { cursor: not-allowed; }
+
+/* Button sizes */
+.btn-sm { padding: var(--spacing-p-1) var(--spacing-p-3); min-height: 30px; }
+.btn-md { padding: var(--spacing-p-2) var(--spacing-p-4); min-height: 38px; }
+.btn-lg { padding: var(--spacing-p-3) var(--spacing-p-5); min-height: 46px; }
+
+/* Button: Contained (Primary) */
+.btn-primary {
+  background: var(--color-color-palette-primary-main);
+  color: var(--color-misc-paper);
+  box-shadow: var(--shadow-elevation-primary-primary-shadow-sm);
+}
+.btn-primary:hover {
+  background: var(--color-color-palette-primary-dark);
+  box-shadow: var(--shadow-elevation-primary-primary-shadow-md);
+}
+.btn-primary:disabled {
+  background: var(--color-theme-action-disabled-bg);
+  color: var(--color-theme-action-disabled);
+  box-shadow: none;
+}
+
+/* Button: Contained Error */
+.btn-error {
+  background: var(--color-color-palette-error-main);
+  color: var(--color-misc-paper);
+  box-shadow: var(--shadow-elevation-error-error-shadow-sm);
+}
+.btn-error:hover { background: var(--color-color-palette-error-dark); }
+
+/* Button: Contained Success */
+.btn-success {
+  background: var(--color-color-palette-success-main);
+  color: var(--color-misc-paper);
+  box-shadow: var(--shadow-elevation-success-success-shadow-sm);
+}
+.btn-success:hover { background: var(--color-color-palette-success-dark); }
+
+/* Button: Outlined */
+.btn-outlined {
+  background: transparent;
+  border-color: var(--color-color-palette-primary-main);
+  color: var(--color-color-palette-primary-main);
+}
+.btn-outlined:hover {
+  background: var(--color-color-palette-primary-opacity-lighter);
+}
+
+/* Button: Text */
+.btn-text {
+  background: transparent;
+  color: var(--color-color-palette-primary-main);
+}
+.btn-text:hover {
+  background: var(--color-color-palette-primary-opacity-lighter);
+}
+
+/* ----- Text Field ----- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-1);
+  width: 100%;
+  max-width: 320px;
+}
+.field-label {
+  color: var(--color-theme-text-secondary);
+  margin-bottom: var(--spacing-gap-1);
+}
+.field-input {
+  width: 100%;
+  height: 38px;
+  padding: 0 var(--spacing-p-4);
+  background: var(--color-misc-paper);
+  border: 1px solid var(--color-theme-input-border);
+  border-radius: var(--radius-md);
+  color: var(--color-theme-text-primary);
+  font-family: inherit;
+  outline: none;
+  transition: all 0.15s;
+}
+.field-input::placeholder { color: var(--color-theme-text-disabled); }
+.field-input:hover { border-color: var(--color-theme-text-primary); }
+.field-input:focus {
+  border-color: var(--color-color-palette-primary-main);
+  border-width: 2px;
+  padding: 0 calc(var(--spacing-p-4) - 1px);
+}
+.field-input:disabled {
+  background: var(--color-theme-action-disabled-bg);
+  color: var(--color-theme-text-disabled);
+  cursor: not-allowed;
+}
+.field-helper { color: var(--color-theme-text-subtitle); margin-top: var(--spacing-gap-1); }
+
+/* Text Field — error state */
+.field-error .field-input {
+  border-color: var(--color-color-palette-error-main);
+}
+.field-error .field-input:focus { border-color: var(--color-color-palette-error-main); }
+.field-error .field-helper { color: var(--color-color-palette-error-main); }
+
+/* ----- Select (visual: looks like text field with arrow) ----- */
+.select-input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%232F2B3D' stroke-opacity='0.55' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--spacing-p-4) center;
+  padding-right: var(--spacing-p-10);
+  cursor: pointer;
+}
+
+/* ----- Checkbox & Radio ----- */
+.check-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-gap-2);
+  cursor: pointer;
+}
+.check-wrap input { position: absolute; opacity: 0; pointer-events: none; }
+.checkbox-box, .radio-box {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--color-theme-input-border);
+  background: var(--color-misc-paper);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.15s;
+}
+.checkbox-box { border-radius: var(--radius-sm); }
+.radio-box { border-radius: var(--radius-border-round); }
+.check-wrap:hover .checkbox-box,
+.check-wrap:hover .radio-box { border-color: var(--color-color-palette-primary-main); }
+.check-wrap input:checked ~ .checkbox-box,
+.check-wrap input:checked ~ .radio-box {
+  background: var(--color-color-palette-primary-main);
+  border-color: var(--color-color-palette-primary-main);
+}
+.check-wrap input:checked ~ .checkbox-box::after {
+  content: "";
+  width: 4px; height: 8px;
+  border-right: 2px solid var(--color-misc-paper);
+  border-bottom: 2px solid var(--color-misc-paper);
+  transform: rotate(45deg) translateY(-1px);
+}
+.check-wrap input:checked ~ .radio-box::after {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: var(--radius-border-round);
+  background: var(--color-misc-paper);
+}
+.check-wrap input:disabled ~ .checkbox-box,
+.check-wrap input:disabled ~ .radio-box {
+  background: var(--color-theme-action-disabled-bg);
+  border-color: var(--color-theme-action-disabled);
+}
+
+/* ----- Chip ----- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-gap-2);
+  padding: var(--spacing-p-1) var(--spacing-p-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-theme-chip-background);
+  color: var(--color-theme-text-secondary);
+}
+.chip-primary { background: var(--color-color-palette-primary-opacity-light); color: var(--color-color-palette-primary-main); }
+.chip-success { background: var(--color-color-palette-success-opacity-light); color: var(--color-color-palette-success-main); }
+.chip-warning { background: var(--color-color-palette-warning-opacity-light); color: var(--color-color-palette-warning-main); }
+.chip-error { background: var(--color-color-palette-error-opacity-light); color: var(--color-color-palette-error-main); }
+.chip-info { background: var(--color-color-palette-info-opacity-light); color: var(--color-color-palette-info-main); }
+.chip-secondary { background: var(--color-color-palette-secondary-opacity-light); color: var(--color-color-palette-secondary-main); }
+
+/* ----- Alert ----- */
+.alert {
+  display: flex;
+  gap: var(--spacing-gap-3);
+  padding: var(--spacing-p-4) var(--spacing-p-5);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid;
+}
+.alert-icon { font-size: 20px; flex-shrink: 0; }
+.alert-body { flex: 1; }
+.alert-title-text { margin-bottom: var(--spacing-gap-1); }
+.alert-info { background: var(--color-color-palette-info-opacity-light); border-left-color: var(--color-color-palette-info-main); }
+.alert-info .alert-title-text, .alert-info .alert-icon { color: var(--color-color-palette-info-main); }
+.alert-success { background: var(--color-color-palette-success-opacity-light); border-left-color: var(--color-color-palette-success-main); }
+.alert-success .alert-title-text, .alert-success .alert-icon { color: var(--color-color-palette-success-main); }
+.alert-warning { background: var(--color-color-palette-warning-opacity-light); border-left-color: var(--color-color-palette-warning-main); }
+.alert-warning .alert-title-text, .alert-warning .alert-icon { color: var(--color-color-palette-warning-main); }
+.alert-error { background: var(--color-color-palette-error-opacity-light); border-left-color: var(--color-color-palette-error-main); }
+.alert-error .alert-title-text, .alert-error .alert-icon { color: var(--color-color-palette-error-main); }
+.alert-message { color: var(--color-theme-text-secondary); }
+
+/* ----- Card ----- */
+.card {
+  background: var(--color-misc-paper);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-elevation-gray-shadow-sm);
+  overflow: hidden;
+}
+.card-header {
+  padding: var(--spacing-p-6);
+  border-bottom: 1px solid var(--color-theme-divider);
+}
+.card-title { color: var(--color-theme-text-primary); margin-bottom: var(--spacing-gap-1); }
+.card-subtitle { color: var(--color-theme-text-secondary); }
+.card-body { padding: var(--spacing-p-6); color: var(--color-theme-text-primary); }
+.card-footer {
+  padding: var(--spacing-p-4) var(--spacing-p-6);
+  border-top: 1px solid var(--color-theme-divider);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-gap-2);
+}
+
+/* ----- Table ----- */
+.table-wrap {
+  background: var(--color-misc-paper);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-elevation-gray-shadow-xs);
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table thead {
+  background: var(--color-misc-table-header);
+  border-bottom: 1px solid var(--color-theme-divider);
+}
+.table th {
+  text-align: left;
+  padding: var(--spacing-p-4) var(--spacing-p-5);
+  color: var(--color-theme-text-secondary);
+}
+.table td {
+  padding: var(--spacing-p-4) var(--spacing-p-5);
+  border-bottom: 1px solid var(--color-theme-divider);
+  color: var(--color-theme-text-primary);
+}
+.table tbody tr:last-child td { border-bottom: none; }
+.table tbody tr:hover { background: var(--color-theme-action-hover); }
+
+/* ============================================================
+ * LAYOUT (카탈로그 페이지 자체용)
+ * ============================================================ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--color-misc-body-bg);
+  color: var(--color-theme-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button { font-family: inherit; }
+
+.app { display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; }
+
+.sidebar {
+  background: var(--color-misc-paper);
+  border-right: 1px solid var(--color-theme-divider);
+  padding: var(--spacing-p-7) var(--spacing-p-5);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sb-brand {
+  padding-bottom: var(--spacing-p-5);
+  margin-bottom: var(--spacing-p-5);
+  border-bottom: 1px solid var(--color-theme-divider);
+}
+.sb-brand-label { color: var(--color-theme-text-subtitle); margin-bottom: var(--spacing-gap-1); }
+.sb-brand-title { color: var(--color-theme-text-primary); }
+
+.sb-group { margin-bottom: var(--spacing-p-5); }
+.sb-group-label {
+  padding: var(--spacing-p-2) var(--spacing-p-3);
+  color: var(--color-theme-text-subtitle);
+}
+.sb-nav { list-style: none; }
+.sb-nav a {
+  display: block;
+  padding: var(--spacing-p-2) var(--spacing-p-3);
+  color: var(--color-theme-text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: all 0.15s;
+}
+.sb-nav a:hover {
+  background: var(--color-theme-action-hover);
+  color: var(--color-theme-text-primary);
+}
+
+.main {
+  padding: var(--spacing-p-10) var(--spacing-p-12);
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.page-header { margin-bottom: var(--spacing-p-12); }
+.page-tag { color: var(--color-color-palette-primary-main); margin-bottom: var(--spacing-gap-3); }
+.page-title { color: var(--color-theme-text-primary); margin-bottom: var(--spacing-p-4); }
+.page-lead { color: var(--color-theme-text-secondary); max-width: 720px; }
+
+.howto {
+  background: var(--color-misc-paper);
+  border: 1px solid var(--color-theme-divider);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-p-6);
+  margin: var(--spacing-p-8) 0;
+}
+.howto summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-gap-3);
+  color: var(--color-theme-text-primary);
+}
+.howto summary::-webkit-details-marker { display: none; }
+.howto summary::before {
+  content: "+"; font-size: 22px; color: var(--color-color-palette-primary-main);
+  width: 22px; text-align: center;
+}
+.howto[open] summary::before { content: "−"; }
+.howto-body { margin-top: var(--spacing-p-4); padding-left: var(--spacing-p-7); }
+.howto-body p { color: var(--color-theme-text-secondary); margin-bottom: var(--spacing-gap-3); }
+
+.section {
+  background: var(--color-misc-paper);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-p-8);
+  margin-bottom: var(--spacing-p-8);
+  box-shadow: var(--shadow-elevation-gray-shadow-xs);
+  scroll-margin-top: var(--spacing-p-5);
+}
+
+.sect-head { margin-bottom: var(--spacing-p-6); }
+.sect-num { color: var(--color-color-palette-primary-main); margin-bottom: var(--spacing-gap-2); }
+.sect-title { color: var(--color-theme-text-primary); margin-bottom: var(--spacing-gap-3); }
+.sect-desc { color: var(--color-theme-text-secondary); }
+
+.preview {
+  background: var(--color-misc-grey-light);
+  border: 1px solid var(--color-theme-divider);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-p-6);
+  margin: var(--spacing-p-5) 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-gap-3);
+  align-items: center;
+}
+.preview-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-4);
+  align-items: flex-start;
+  width: 100%;
+}
+.preview-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-gap-3);
+  align-items: center;
+}
+
+.preview-label {
+  width: 100%;
+  color: var(--color-theme-text-subtitle);
+  margin-bottom: var(--spacing-gap-1);
+}
+
+.code-block {
+  background: var(--color-misc-snackbar);
+  color: var(--color-misc-paper);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-p-5);
+  font-family: 'JetBrains Mono', 'D2Coding', Menlo, monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  margin: var(--spacing-p-4) 0;
+  position: relative;
+  overflow-x: auto;
+  white-space: pre;
+}
+.copy-btn {
+  position: absolute;
+  top: var(--spacing-p-3);
+  right: var(--spacing-p-3);
+  background: rgba(255,255,255,0.08);
+  color: var(--color-misc-paper);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-p-1) var(--spacing-p-3);
+  cursor: pointer;
+  font-family: inherit;
+}
+.copy-btn:hover { background: rgba(255,255,255,0.18); }
+.copy-btn.copied { background: var(--color-color-palette-success-main); border-color: var(--color-color-palette-success-main); }
+
+.notes {
+  margin-top: var(--spacing-p-4);
+  padding: var(--spacing-p-4) var(--spacing-p-5);
+  background: var(--color-color-palette-primary-opacity-lighter);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-color-palette-primary-main);
+}
+.notes-label { color: var(--color-color-palette-primary-main); margin-bottom: var(--spacing-gap-2); }
+.notes ul { margin: 0; padding-left: var(--spacing-p-5); }
+.notes li { color: var(--color-theme-text-secondary); margin-bottom: var(--spacing-gap-1); }
+
+code {
+  font-family: 'JetBrains Mono', 'D2Coding', monospace;
+  font-size: 0.9em;
+  background: var(--color-theme-chip-background);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: var(--spacing-p-4); right: var(--spacing-p-4);
+  z-index: 200;
+  background: var(--color-misc-paper);
+  border: 1px solid var(--color-theme-outline-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-p-3) var(--spacing-p-4);
+  cursor: pointer;
+  box-shadow: var(--shadow-elevation-gray-shadow-sm);
+}
+
+@media (max-width: 880px) {
+  .app { grid-template-columns: 1fr; }
+  .sidebar {
+    position: fixed; width: 260px;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    box-shadow: var(--shadow-elevation-gray-shadow-lg);
+    z-index: 100;
+  }
+  .sidebar.open { transform: translateX(0); }
+  .menu-toggle { display: block; }
+  .main { padding: var(--spacing-p-8) var(--spacing-p-5); }
+  .page-title.text-h1 { font-size: 32px; line-height: 44px; }
+}
+
+</style>
+</head>
+<body>
+
+<button class="menu-toggle text-btn-small" onclick="document.getElementById('sidebar').classList.toggle('open')">목차</button>
+
+<div class="app">
+
+  <!-- ====== Sidebar ====== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-brand">
+      <div class="sb-brand-label text-overline">DESIGN SYSTEM</div>
+      <div class="sb-brand-title text-h6">컴포넌트 카탈로그</div>
+    </div>
+
+    <div class="sb-group">
+      <div class="sb-group-label text-overline">기본 입력</div>
+      <ul class="sb-nav">
+        <li><a href="#button" class="text-body-2">Button</a></li>
+        <li><a href="#text-field" class="text-body-2">Text Field</a></li>
+        <li><a href="#select" class="text-body-2">Select</a></li>
+        <li><a href="#checkbox" class="text-body-2">Checkbox & Radio</a></li>
+      </ul>
+    </div>
+
+    <div class="sb-group">
+      <div class="sb-group-label text-overline">표시 & 피드백</div>
+      <ul class="sb-nav">
+        <li><a href="#chip" class="text-body-2">Chip</a></li>
+        <li><a href="#alert" class="text-body-2">Alert</a></li>
+      </ul>
+    </div>
+
+    <div class="sb-group">
+      <div class="sb-group-label text-overline">컨테이너</div>
+      <ul class="sb-nav">
+        <li><a href="#card" class="text-body-2">Card</a></li>
+        <li><a href="#table" class="text-body-2">Table</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ====== Main ====== -->
+  <main class="main">
+
+    <div class="page-header">
+      <div class="page-tag text-overline">COMPONENT CATALOG · v1</div>
+      <h1 class="page-title text-h1">컴포넌트 카탈로그</h1>
+      <p class="page-lead text-body-1">
+        회사 디자인 시스템의 핵심 컴포넌트 9종을 시각 예시와 코드로 정리했습니다.
+        AI로 사내 서비스를 만들 때 이 파일을 함께 첨부하면 일관된 컴포넌트로 화면이 만들어집니다.
+      </p>
+
+      <details class="howto" open>
+        <summary class="text-body-1-500">AI와 함께 쓰는 방법</summary>
+        <div class="howto-body">
+          <p class="text-body-2">Claude.ai에서 새 대화를 열고, 아래 세 파일을 모두 첨부하세요.</p>
+          <p class="text-body-2-500" style="color:var(--color-theme-text-primary);">
+            ① tokens.css &nbsp;&nbsp; ② typography.css &nbsp;&nbsp; ③ components.html (이 파일)
+          </p>
+          <p class="text-body-2">그리고 다음 프롬프트를 사용하세요.</p>
+
+          <div class="code-block">
+<button class="copy-btn text-btn-small" onclick="copyCode(this)">복사</button>첨부한 tokens.css, typography.css, components.html을 사용해서
+[원하는 서비스 설명]을 만들어주세요.
+
+규칙:
+- components.html에 정의된 컴포넌트만 사용
+- 각 컴포넌트의 HTML 구조와 클래스 이름을 그대로 사용
+  (예: &lt;button class="btn btn-primary btn-md"&gt;)
+- 색상은 var(--color-...) 변수만 사용
+- 폰트는 .text-h1, .text-body-1 같은 클래스만 사용
+- 임의의 hex 색상값(#5578F0 같은)이나 font-size 직접 입력 금지</div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ====== Button ====== -->
+    <section class="section" id="button">
+      <div class="sect-head">
+        <div class="sect-num text-overline">01 · BUTTON</div>
+        <h2 class="sect-title text-h3">Button</h2>
+        <p class="sect-desc text-body-1">사용자 액션을 트리거하는 가장 기본적인 컴포넌트입니다. 중요도에 따라 Primary / Outlined / Text를 구분합니다.</p>
+      </div>
+
+      <div class="preview">
+        <div class="preview-stack">
+          <div class="preview-label text-overline">VARIANT — 종류별</div>
+          <div class="preview-row">
+            <button class="btn btn-primary btn-md text-btn-medium">Primary</button>
+            <button class="btn btn-outlined btn-md text-btn-medium">Outlined</button>
+            <button class="btn btn-text btn-md text-btn-medium">Text</button>
+            <button class="btn btn-primary btn-md text-btn-medium" disabled>Disabled</button>
+          </div>
+
+          <div class="preview-label text-overline">SIZE — 크기별</div>
+          <div class="preview-row">
+            <button class="btn btn-primary btn-sm text-btn-small">Small</button>
+            <button class="btn btn-primary btn-md text-btn-medium">Medium</button>
+            <button class="btn btn-primary btn-lg text-btn-large">Large</button>
+          </div>
+
+          <div class="preview-label text-overline">COLOR — 색상별 (강조용)</div>
+          <div class="preview-row">
+            <button class="btn btn-primary btn-md text-btn-medium">Primary</button>
+            <button class="btn btn-success btn-md text-btn-medium">Success</button>
+            <button class="btn btn-error btn-md text-btn-medium">Error</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-block">
+<button class="copy-btn text-btn-small" onclick="copyCode(this)">복사</button>&lt;!-- Variant --&gt;
+&lt;button class="btn btn-primary btn-md text-btn-medium"&gt;Primary&lt;/button&gt;
+&lt;button class="btn btn-outlined btn-md text-btn-medium"&gt;Outlined&lt;/button&gt;
+&lt;button class="btn btn-text btn-md text-btn-medium"&gt;Text&lt;/button&gt;
+
+&lt;!-- Size: btn-sm / btn-md / btn-lg --&gt;
+&lt;!-- Color: btn-primary / btn-success / btn-error --&gt;
+&lt;!-- Disabled: disabled 속성 추가 --&gt;</div>
+
+      <div class="notes">
+        <div class="notes-label text-body-2-500">사용 가이드</div>
+        <ul>
+          <li class="text-body-2">한 화면에 Primary 버튼은 1~2개로 제한하세요. 너무 많으면 강조가 사라집니다.</li>
+          <li class="text-body-2">취소나 보조 액션은 Outlined 또는 Text 버튼을 사용하세요.</li>
+          <li class="text-body-2">삭제 같은 위험한 액션은 Error 색상을 사용하세요.</li>
+          <li class="text-body-2">버튼 크기는 기본 Medium을 사용하고, 작은 영역에만 Small을 사용하세요.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ====== Text Field ====== -->
+    <section class="section" id="text-field">
+      <div class="sect-head">
+        <div class="sect-num text-overline">02 · TEXT FIELD</div>
+        <h2 class="sect-title text-h3">Text Field</h2>
+        <p class="sect-desc text-body-1">텍스트, 숫자, 이메일 등 사용자 입력을 받는 가장 기본적인 입력 필드입니다.</p>
+      </div>
+
+      <div class="preview">
+        <div class="preview-stack">
+          <div class="preview-label text-overline">STATE — 상태별</div>
+          <div class="preview-row" style="gap: var(--spacing-gap-6);">
+            <div class="field">
+              <label class="field-label text-input-label">기본</label>
+              <input class="field-input text-input-text" type="text" placeholder="값을 입력하세요">
+            </div>
+            <div class="field">
+              <label class="field-label text-input-label">입력됨</label>
+              <input class="field-input text-input-text" type="text" value="hello@example.com">
+            </div>
+            <div class="field">
+              <label class="field-label text-input-label">비활성</label>
+              <input class="field-input text-input-text" type="text" placeholder="비활성 상태" disabled>
+            </div>
+          </div>
+
+          <div class="preview-label text-overline">WITH HELPER — 도움말 포함</div>
+          <div class="preview-row" style="gap: var(--spacing-gap-6);">
+            <div class="field">
+              <label class="field-label text-input-label">이메일</label>
+              <input class="field-input text-input-text" type="email" placeholder="example@company.com">
+              <span class="field-helper text-helper-text">회사 이메일을 입력하세요</span>
+            </div>
+            <div class="field field-error">
+              <label class="field-label text-input-label">비밀번호</label>
+              <input class="field-input text-input-text" type="password" value="123">
+              <span class="field-helper text-helper-text">최소 8자 이상이어야 합니다</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-block">
+<button class="copy-btn text-btn-small" onclick="copyCode(this)">복사</button>&lt;!-- 기본 --&gt;
+&lt;div class="field"&gt;
+  &lt;label class="field-label text-input-label"&gt;이메일&lt;/label&gt;
+  &lt;input class="field-input text-input-text" type="email" placeholder="example@company.com"&gt;
+  &lt;span class="field-helper text-helper-text"&gt;회사 이메일을 입력하세요&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- 에러 상태 --&gt;
+&lt;div class="field field-error"&gt;
+  &lt;label class="field-label text-input-label"&gt;비밀번호&lt;/label&gt;
+  &lt;input class="field-input text-input-text" type="password"&gt;
+  &lt;span class="field-helper text-helper-text"&gt;최소 8자 이상이어야 합니다&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- 비활성: input에 disabled 속성 추가 --&gt;</div>
+
+      <div class="notes">
+        <div class="notes-label text-body-2-500">사용 가이드</div>
+        <ul>
+          <li class="text-body-2">레이블은 항상 입력 필드 위에 배치합니다.</li>
+          <li class="text-body-2">에러 메시지는 구체적으로 작성하세요 (예: "이메일 형식이 올바르지 않습니다").</li>
+          <li class="text-body-2">helper text는 입력 가이드나 에러 메시지로 활용합니다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ====== Select ====== -->
+    <section class="section" id="select">
+      <div class="sect-head">
+        <div class="sect-num text-overline">03 · SELECT</div>
+        <h2 class="sect-title text-h3">Select</h2>
+        <p class="sect-desc text-body-1">미리 정의된 옵션 중 하나를 선택하게 하는 드롭다운 입력입니다. Text Field와 동일한 스타일에 화살표 아이콘이 추가됩니다.</p>
+      </div>
+
+      <div class="preview">
+        <div class="preview-stack">
+          <div class="preview-row" style="gap: var(--spacing-gap-6);">
+            <div class="field">
+              <label class="field-label text-input-label">부서 선택</label>
+              <select class="field-input select-input text-input-text">
+                <option>전체</option>
+                <option>영업팀</option>
+                <option>운영팀</option>
+                <option>디자인팀</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field-label text-input-label">상태</label>
+              <select class="field-input select-input text-input-text">
+                <option>활성</option>
+                <option>비활성</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field-label text-input-label">비활성</label>
+              <select class="field-input select-input text-input-text" disabled>
+                <option>선택 불가</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-block">
+<button class="copy-btn text-btn-small" onclick="copyCode(this)">복사</button>&lt;div class="field"&gt;
+  &lt;label class="field-label text-input-label"&gt;부서 선택&lt;/label&gt;
+  &lt;select class="field-input select-input text-input-text"&gt;
+    &lt;option&gt;전체&lt;/option&gt;
+    &lt;option&gt;영업팀&lt;/option&gt;
+    &lt;option&gt;운영팀&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/div&gt;</div>
+
+      <div class="notes">
+        <div class="notes-label text-body-2-500">사용 가이드</div>
+        <ul>
+          <li class="text-body-2">옵션이 5개 이하면 Radio 그룹을 고려하세요 (선택지가 한눈에 보임).</li>
+          <li class="text-body-2">기본 선택값이 필요하면 첫 옵션을 "전체" 또는 "선택해주세요"로 두세요.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ====== Checkbox & Radio ====== -->
+    <section class="section" id="checkbox">
+      <div class="sect-head">
+        <div class="sect-num text-overline">04 · CHECKBOX & RADIO</div>
+        <h2 class="sect-title text-h3">Checkbox & Radio</h2>
+        <p class="sect-desc text-body-1">여러 항목을 동시에 선택할 때는 Checkbox, 하나만 선택할 때는 Radio를 사용합니다.</p>
+      </div>
+
+      <div class="preview">
+        <div class="preview-stack">
+          <div class="preview-label text-overline">CHECKBOX</div>
+          <div class="preview-row" style="gap: var(--spacing-gap-6);">
+            <label class="check-wrap">
+              <input type="checkbox">
+              <span class="checkbox-box"></span>
+              <span class="text-body-1">선택 안 됨</span>
+            </label>
+            <label class="check-wrap">
+              <input type="checkbox" checked>
+              <span class="checkbox-box"></span>
+              <span class="text-body-1">선택됨</span>
+            </label>
+            <label class="check-wrap" style="cursor: not-allowed;">
+              <input type="checkbox" disabled>
+              <span class="checkbox-box"></span>
+              <span class="text-body-1" style="color: var(--color-theme-text-disabled);">비활성</span>
+            </label>
+          </div>
+
+          <div class="preview-label text-overline">RADIO</div>
+          <div class="preview-row" style="gap: var(--spacing-gap-6);">
+            <label class="check-wrap">
+              <input type="radio" name="demo-radio">
+              <span class="radio-box"></span>
+              <span class="text-body-1">옵션 A</span>
+            </label>
+            <label class="check-wrap">
+              <input type="radio" name="demo-radio" checked>
+              <span class="radio-box"></span>
+              <span class="text-body-1">옵션 B</span>
+            </label>
+            <label class="check-wrap" style="cursor: not-allowed;">
+              <input type="radio" name="demo-radio" disabled>
+              <span class="radio-box"></span>
+              <span class="text-body-1" style="color: var(--color-theme-text-disabled);">비활성</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-block">
+<button class="copy-btn text-btn-small" onclick="copyCode(this)">복사</button>&lt;!-- Checkbox --&gt;
+&lt;label class="check-wrap"&gt;
+  &lt;input type="checkbox"&gt;
+  &lt;span class="checkbox-box"&gt;&lt;/span&gt;
+  &lt;span class="text-body-1"&gt;라벨 텍스트&lt;/span&gt;
+&lt;/label&gt;
+
+&lt;!-- Radio (같은 그룹은 name 속성 동일하게) --&gt;
+&lt;label class="check-wrap"&gt;
+  &lt;input type="radio" name="group-name"&gt;
+  &lt;span class="radio-box"&gt;&lt;/span&gt;
+  &lt;span class="text-body-1"&gt;옵션 A&lt;/span&gt;
+&lt;/label&gt;</div>
+
+      <div class="notes">
+        <div class="notes-label text-body-2-500">사용 가이드</div>
+        <ul>
+          <li class="text-body-2">Checkbox: 여러 개 동시 선택 가능 (예: 관심 분야 다중 선택).</li>
+          <li class="text-body-2">Radio: 하나만 선택 가능 (예: 성별, 결제 수단).</li>
+          <li class="text-body-2">옵션을 세로로 나열하려면 <code>flex-direction: column</code>으로 감싸세요.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ====== Chip ====== -->
+    <section class="section" id="chip">
+      <div class="sect-head">
+        <div class="sect-num text-overline">05 · CHIP</div>
+        <h2 class="sect-title text-h3">Chip</h2>
+        <p class="sect-desc text-body-1">상태, 카테고리, 태그 등을 작게 표시할 때 사용합니다. 색상으로 의미를 구분합니다.</p>
+      </div>
+
+      <div class="preview">
+        <div class="preview-stack">
+          <div class="preview-label text-overline">COLOR VARIANTS</div>
+          <div class="preview-row">
+            <span class="chip text-chip">Default</span>
+            <span class="chip chip-primary text-chip">Primary</span>
+            <span class="chip chip-success text-chip">Success</span>
+            <span class="chip chip-warning text-chip">Warning</span>
+            <span class="chip chip-error text-chip">Error</span>
+            <span class="chip chip-info text-chip">Info</span>
+            <span class="chip chip-secondary text-chip">Secondary</span>
+          </div>
+
+          <div class="preview-label text-overline">EXAMPLES — 실제 사용</div>
+          <div class="preview-row">
+            <span class="chip chip-success text-chip">정상 출근</span>
+            <span class="chip chip-warning text-chip">지각</span>
+            <span class="chip chip-error text-chip">결근</span>
+            <span class="chip chip-info text-chip">휴가</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-block">
+<button class="copy-btn text-btn-small" onclick="copyCode(this)">복사</button>&lt;span class="chip text-chip"&gt;Default&lt;/span&gt;
+&lt;span class="chip chip-primary text-chip"&gt;Primary&lt;/span&gt;
+&lt;span class="chip chip-success text-chip"&gt;정상 출근&lt;/span&gt;
+&lt;span class="chip chip-warning text-chip"&gt;지각&lt;/span&gt;
+&lt;span class="chip chip-error text-chip"&gt;결근&lt;/span&gt;
+&lt;span class="chip chip-info text-chip"&gt;휴가&lt;/span&gt;</div>
+
+      <div class="notes">
+        <div class="notes-label text-body-2-500">사용 가이드</div>
+        <ul>
+          <li class="text-body-2">색상은 의미와 일치하게 사용하세요 (Success=좋음, Error=나쁨, Warning=주의).</li>
+          <li class="text-body-2">한 화면에 너무 많은 색상의 Chip을 섞지 마세요. 시각적으로 산만해집니다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ====== Alert ====== -->
+    <section class="section" id="alert">
+      <div class="sect-head">
+        <div class="sect-num text-overline">06 · ALERT</div>
+        <h2 class="sect-title text-h3">Alert</h2>
+        <p class="sect-desc text-body-1">사용자에게 중요한 정보, 성공/에러 메시지를 알릴 때 사용합니다.</p>
+      </div>
+
+      <div class="preview">
+        <div class="preview-stack" style="gap: var(--spacing-gap-3);">
+          <div class="alert alert-info" style="width:100%;">
+            <span class="alert-icon">ℹ</span>
+            <div class="alert-body">
+              <div class="alert-title-text text-alert-title">알림 제목</div>
+              <div class="alert-message text-body-2">참고용 정보 메시지입니다.</div>
+            </div>
+          </div>
+          <div class="alert alert-success" style="width:100%;">
+            <span class="alert-icon">✓</span>
+            <div class="alert-body">
+              <div class="alert-title-text text-alert-title">성공</div>
+              <div class="alert-message text-body-2">요청이 정상적으로 처리되었습니다.</div>
+            </div>
+          </div>
+          <div class="alert alert-warning" style="width:100%;">
+            <span class="alert-icon">⚠</span>
+            <div class="alert-body">
+              <div class="alert-title-text text-alert-title">주의</div>
+              <div class="alert-message text-body-2">이 작업은 되돌릴 수 없습니다.</div>
+            </div>
+          </div>
+          <div class="alert alert-error" style="width:100%;">
+            <span class="alert-icon">✕</span>
+            <div class="alert-body">
+              <div class="alert-title-text text-alert-title">오류 발생</div>
+              <div class="alert-message text-body-2">서버와의 연결이 끊어졌습니다.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-block">
+<button class="copy-btn text-btn-small" onclick="copyCode(this)">복사</button>&lt;!-- Variants: alert-info / alert-success / alert-warning / alert-error --&gt;
+&lt;div class="alert alert-success"&gt;
+  &lt;span class="alert-icon"&gt;✓&lt;/span&gt;
+  &lt;div class="alert-body"&gt;
+    &lt;div class="alert-title-text text-alert-title"&gt;성공&lt;/div&gt;
+    &lt;div class="alert-message text-body-2"&gt;요청이 정상적으로 처리되었습니다.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+
+      <div class="notes">
+        <div class="notes-label text-body-2-500">사용 가이드</div>
+        <ul>
+          <li class="text-body-2">Info: 일반 안내, Success: 작업 완료, Warning: 주의 필요, Error: 문제 발생.</li>
+          <li class="text-body-2">title은 짧고 명확하게, message는 구체적으로 작성하세요.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ====== Card ====== -->
+    <section class="section" id="card">
+      <div class="sect-head">
+        <div class="sect-num text-overline">07 · CARD</div>
+        <h2 class="sect-title text-h3">Card</h2>
+        <p class="sect-desc text-body-1">관련된 정보를 그룹화해서 시각적으로 분리할 때 사용합니다. 헤더 / 본문 / 푸터로 구성됩니다.</p>
+      </div>
+
+      <div class="preview">
+        <div class="preview-stack" style="gap: var(--spacing-gap-5);">
+          <div class="card" style="width:100%; max-width:480px;">
+            <div class="card-header">
+              <div class="card-title text-h5">고객 응대 요약</div>
+              <div class="card-subtitle text-body-2">2026년 5월 20일 기준</div>
+            </div>
+            <div class="card-body">
+              <p class="text-body-1">오늘 총 23건의 응대가 진행되었고, 평균 응대 시간은 4분 32초입니다.</p>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-text btn-sm text-btn-small">취소</button>
+              <button class="btn btn-primary btn-sm text-btn-small">자세히 보기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-block">
+<button class="copy-btn text-btn-small" onclick="copyCode(this)">복사</button>&lt;div class="card"&gt;
+  &lt;div class="card-header"&gt;
+    &lt;div class="card-title text-h5"&gt;카드 제목&lt;/div&gt;
+    &lt;div class="card-subtitle text-body-2"&gt;부제목&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="card-body"&gt;
+    &lt;p class="text-body-1"&gt;본문 내용...&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="card-footer"&gt;
+    &lt;button class="btn btn-text btn-sm text-btn-small"&gt;취소&lt;/button&gt;
+    &lt;button class="btn btn-primary btn-sm text-btn-small"&gt;확인&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+
+      <div class="notes">
+        <div class="notes-label text-body-2-500">사용 가이드</div>
+        <ul>
+          <li class="text-body-2">card-header, card-body, card-footer는 필요한 것만 사용해도 됩니다.</li>
+          <li class="text-body-2">버튼은 card-footer 안에서 오른쪽 정렬됩니다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ====== Table ====== -->
+    <section class="section" id="table">
+      <div class="sect-head">
+        <div class="sect-num text-overline">08 · TABLE</div>
+        <h2 class="sect-title text-h3">Table</h2>
+        <p class="sect-desc text-body-1">데이터를 행과 열로 정리해서 보여줄 때 사용합니다. 직원 목록, 출결 기록 등에 적합합니다.</p>
+      </div>
+
+      <div class="preview">
+        <div class="table-wrap" style="width:100%;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="text-table-header">이름</th>
+                <th class="text-table-header">부서</th>
+                <th class="text-table-header">상태</th>
+                <th class="text-table-header">출근 시간</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-body-2">김민지</td>
+                <td class="text-body-2">디자인팀</td>
+                <td><span class="chip chip-success text-chip">정상</span></td>
+                <td class="text-body-2">09:02</td>
+              </tr>
+              <tr>
+                <td class="text-body-2">이준호</td>
+                <td class="text-body-2">개발팀</td>
+                <td><span class="chip chip-warning text-chip">지각</span></td>
+                <td class="text-body-2">09:48</td>
+              </tr>
+              <tr>
+                <td class="text-body-2">박서연</td>
+                <td class="text-body-2">영업팀</td>
+                <td><span class="chip chip-info text-chip">휴가</span></td>
+                <td class="text-body-2">—</td>
+              </tr>
+              <tr>
+                <td class="text-body-2">최도윤</td>
+                <td class="text-body-2">운영팀</td>
+                <td><span class="chip chip-success text-chip">정상</span></td>
+                <td class="text-body-2">08:55</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="code-block">
+<button class="copy-btn text-btn-small" onclick="copyCode(this)">복사</button>&lt;div class="table-wrap"&gt;
+  &lt;table class="table"&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th class="text-table-header"&gt;이름&lt;/th&gt;
+        &lt;th class="text-table-header"&gt;부서&lt;/th&gt;
+        &lt;th class="text-table-header"&gt;상태&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td class="text-body-2"&gt;김민지&lt;/td&gt;
+        &lt;td class="text-body-2"&gt;디자인팀&lt;/td&gt;
+        &lt;td&gt;&lt;span class="chip chip-success text-chip"&gt;정상&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</div>
+
+      <div class="notes">
+        <div class="notes-label text-body-2-500">사용 가이드</div>
+        <ul>
+          <li class="text-body-2">상태/태그 컬럼에는 Chip 컴포넌트를 활용하세요.</li>
+          <li class="text-body-2">컬럼이 많을 때는 가로 스크롤이 자동으로 생깁니다 (table-wrap이 처리).</li>
+          <li class="text-body-2">행에 hover 효과가 자동으로 적용됩니다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <div style="text-align:center; color:var(--color-theme-text-subtitle); padding: var(--spacing-p-8) 0;">
+      <p class="text-caption">컴포넌트 카탈로그 v1 · 디자인팀</p>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  function copyCode(btn) {
+    const codeBlock = btn.parentElement;
+    let text = codeBlock.innerText.replace(/^복사\s*/, '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '복사됨 ✓';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = '복사'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+
+  // 스무스 스크롤 + 사이드바 닫기
+  document.querySelectorAll('.sb-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 880) document.getElementById('sidebar').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>

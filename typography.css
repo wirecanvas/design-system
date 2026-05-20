@@ -1,0 +1,338 @@
+/* ============================================================
+ * Typography classes generated from Figma Variables
+ * Source: variables.json (Typography collection)
+ * ============================================================ */
+
+/* --- Basic Typography --- */
+
+.text-h1 {
+  font-size: 46px;
+  font-family: "Public Sans";
+  font-weight: 500;
+  line-height: 68px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-h2 {
+  font-size: 38px;
+  font-family: "Public Sans";
+  font-weight: 500;
+  line-height: 56px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-h3 {
+  font-size: 28px;
+  font-family: "Public Sans";
+  font-weight: 500;
+  line-height: 42px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-h4 {
+  font-size: 24px;
+  font-family: "Public Sans";
+  font-weight: 500;
+  line-height: 38px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-h5 {
+  font-size: 18px;
+  font-family: "Public Sans";
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-h6 {
+  font-size: 15px;
+  font-family: "Public Sans";
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-body-1 {
+  font-size: 15px;
+  font-family: "Public Sans";
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-body-1-500 {
+  font-size: 15px;
+  font-family: "Public Sans";
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-body-2 {
+  font-size: 13px;
+  font-family: "Public Sans";
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-body-2-500 {
+  font-size: 13px;
+  font-family: "Public Sans";
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-subtitle-1 {
+  font-size: 15px;
+  font-family: "Public Sans";
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-subtitle-2 {
+  font-size: 13px;
+  font-family: "Public Sans";
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-overline {
+  font-size: 12px;
+  font-family: "Public Sans";
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.text-caption {
+  font-size: 13px;
+  font-family: "Public Sans";
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.4px;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-toast {
+  font-size: 15px;
+  font-family: "Public Sans";
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-small {
+  font-size: 12px;
+  font-family: "Public Sans";
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-mini-upper {
+  font-size: 10px;
+  font-family: "Public Sans";
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.text-mini {
+  font-size: 10px;
+  font-family: "Public Sans";
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-mini-500 {
+  font-size: 10px;
+  font-family: "Public Sans";
+  font-weight: 600;
+  line-height: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+/* --- Components Typography --- */
+
+.text-btn-small {
+  font-size: 13px;
+  font-family: "Public Sans";
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.text-btn-medium {
+  font-size: 15px;
+  font-family: "Public Sans";
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.text-btn-large {
+  font-size: 17px;
+  font-family: "Public Sans";
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.text-input-label {
+  font-size: 13px;
+  font-family: "Public Sans";
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-helper-text {
+  font-size: 13px;
+  font-family: "Public Sans";
+  font-weight: 400;
+  line-height: 13px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-input-text-large {
+  font-size: 17px;
+  font-family: "Public Sans";
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-input-text {
+  font-size: 15px;
+  font-family: "Public Sans";
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-input-text-small {
+  font-size: 13px;
+  font-family: "Public Sans";
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-avatar-initials {
+  font-size: 15px;
+  font-family: "Public Sans";
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-chip {
+  font-size: 13px;
+  font-family: "Public Sans";
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-tooltip {
+  font-size: 13px;
+  font-family: "Public Sans";
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-alert-title {
+  font-size: 18px;
+  font-family: "Public Sans";
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.text-table-header {
+  font-size: 13px;
+  font-family: "Public Sans";
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.text-badge-label {
+  font-size: 13px;
+  font-family: "Public Sans";
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: none;
+}
