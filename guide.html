@@ -313,7 +313,7 @@ code {
 
 .file-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-gap-4);
   margin: var(--spacing-p-6) 0;
 }
@@ -344,6 +344,27 @@ code {
 .file-desc { color: var(--color-theme-text-secondary); margin-bottom: var(--spacing-gap-3); }
 .file-stats { display: flex; flex-direction: column; gap: var(--spacing-gap-1); color: var(--color-theme-text-subtitle); }
 .file-stats span::before { content: "·"; margin-right: var(--spacing-gap-2); color: var(--color-theme-outline-border); }
+
+/* Download Button (file-card 내부) */
+.dl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-gap-2);
+  margin-top: var(--spacing-p-4);
+  padding: var(--spacing-p-2) var(--spacing-p-4);
+  background: var(--color-color-palette-primary-main);
+  color: var(--color-misc-paper);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  box-shadow: var(--shadow-elevation-primary-primary-shadow-sm);
+  transition: all 0.15s;
+}
+.dl-btn:hover {
+  background: var(--color-color-palette-primary-dark);
+  box-shadow: var(--shadow-elevation-primary-primary-shadow-md);
+  transform: translateY(-1px);
+}
+.dl-btn span { font-size: 14px; }
 
 .check-list { list-style: none; margin: var(--spacing-p-4) 0 var(--spacing-p-6) 0; padding: 0; }
 .check-list li {
@@ -629,6 +650,9 @@ strong { font-weight: 600; color: var(--color-theme-text-primary); }
             <span class="text-caption">간격 / 크기 84개</span>
             <span class="text-caption">그림자 28개</span>
           </div>
+          <a href="tokens.css" download class="dl-btn text-btn-small">
+            <span>⬇</span> 다운로드
+          </a>
         </div>
         <div class="file-card">
           <span class="file-icon text-mini-upper">CSS</span>
@@ -639,11 +663,31 @@ strong { font-weight: 600; color: var(--color-theme-text-primary); }
             <span class="text-caption">본문 (body-1, body-2)</span>
             <span class="text-caption">총 33개 클래스</span>
           </div>
+          <a href="typography.css" download class="dl-btn text-btn-small">
+            <span>⬇</span> 다운로드
+          </a>
+        </div>
+        <div class="file-card">
+          <span class="file-icon text-mini-upper">HTML</span>
+          <div class="file-name text-body-1-500">components.html</div>
+          <div class="file-desc text-body-2">컴포넌트 카탈로그 (참고용 + AI 첨부용)</div>
+          <div class="file-stats">
+            <span class="text-caption">버튼, 입력, 표 등 9종</span>
+            <span class="text-caption">시각 예시 + 코드</span>
+            <span class="text-caption">AI에 함께 첨부 권장</span>
+          </div>
+          <a href="components.html" download class="dl-btn text-btn-small">
+            <span>⬇</span> 다운로드
+          </a>
         </div>
       </div>
 
       <div class="callout">
         <p class="text-body-1"><strong>열어보지 않으셔도 돼요.</strong> 직접 코드를 읽거나 수정할 필요 없습니다. AI에게 첨부만 하면 알아서 사용합니다.</p>
+      </div>
+
+      <div class="callout callout-success" style="margin-top: var(--spacing-p-4);">
+        <p class="text-body-1">💡 <strong>컴포넌트 카탈로그도 보고 싶다면?</strong> <a href="components.html" style="color: var(--color-color-palette-primary-main); font-weight: 500;">여기서 미리보기 →</a></p>
       </div>
     </section>
 
